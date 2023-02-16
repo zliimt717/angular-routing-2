@@ -6,6 +6,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './messages/message.module';
+import { ProductData } from './products/product-data';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ProductModule } from './products/product/product.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,8 @@ import { MessageModule } from './messages/message.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    InMemoryWebApiModule.forRoot(ProductData,{delay:1000}),
+    ProductModule,
     UserModule,
     MessageModule
   ],
