@@ -6,6 +6,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductEditComponent } from './product-edit/product-edit/product-edit.component';
 import { ProductEditInfoComponent } from './product-edit/product-edit-info/product-edit-info.component';
 import { ProductEditTagsComponent } from './product-edit/product-edit-tags/product-edit-tags.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -18,7 +19,10 @@ import { ProductEditTagsComponent } from './product-edit/product-edit-tags/produ
     ProductEditTagsComponent
   ],
   imports: [
-   SharedModule
+   SharedModule,
+   RouterModule.forChild([
+    {path:'products',component:ProductListComponent}
+   ])
   ]
 })
 export class ProductModule { }

@@ -9,7 +9,7 @@ import { MessageModule } from './messages/message.module';
 import { ProductData } from './products/product-data';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProductModule } from './products/product/product.module';
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,14 +21,10 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(ProductData,{delay:1000}),
-    RouterModule.forRoot([
-      {path:'welcome',component:WelcomComponent},
-      {path:'',redirectTo:'welcome',pathMatch:'full'},
-      {path:'**',component:PageNotFoundComponent}
-    ]),
     ProductModule,
     UserModule,
-    MessageModule
+    MessageModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

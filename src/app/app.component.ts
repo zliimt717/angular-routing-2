@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './user/auth.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class AppComponent {
 
   pageTitle = 'Product Management';
 
-  constructor(private authService:AuthService){}
+  constructor(private authService:AuthService,
+              private router:Router){}
 
   get isLoggedIn():boolean{
     return this.authService.isLoggedIn; 
@@ -26,5 +28,6 @@ export class AppComponent {
   logOut() {
     this.authService.logout();
     console.log('Log out');
+    this.router.navigateByUrl('/welcome');
   }
 }
